@@ -33,6 +33,29 @@ body {
     background-color: var(--LIGHT-BG-COLOR);
 }
 
+#dark-mode-toggle {
+    background-color: #333; /* Background color for the button in light mode */
+    color: #fff; /* Text color for the button in light mode */
+    border: none;
+    padding: 10px 20px; /* Adjust the padding as needed */
+    cursor: pointer;
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  #dark-mode-toggle:hover {
+    background-color: #555; /* Background color on hover */
+  }
+  
+  #dark-mode-toggle.dark-mode {
+    background-color: #fff; /* Background color for the button in dark mode */
+    color: #333; /* Text color for the button in dark mode */
+  }  
+  .dark-mode {
+    background-color: #333;
+    color: #fff;
+  }
+  
 
 /* || STARTING */
 .container {

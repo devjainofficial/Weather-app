@@ -166,6 +166,12 @@ function forecastdayReport() {
     })
 }
 
+const darkModeToggle = document.getElementById('dark-mode-toggle');
+
+darkModeToggle.addEventListener('click', () => {
+  document.body.classList.toggle('dark-mode');
+});
+
 function time() {
     var timezone = responseData.location?.tz_id;;
     var now = new Date().toLocaleTimeString('en-US', { timeZone: timezone });
