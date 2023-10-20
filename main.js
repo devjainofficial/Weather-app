@@ -185,5 +185,13 @@ searchCity.addEventListener('keydown', () => {
     weatherReport(searchCity.value)
 })
 
+const themeToggler = document.querySelector('#theme-toggler');
+const body = document.querySelector('body');
+
+themeToggler.onclick = () => {
+    themeToggler.classList.toggle('fa-moon');
+    themeToggler.classList.toggle('fa-star');
+    body.classList.toggle('active');
+}
 
 

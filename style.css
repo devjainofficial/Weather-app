@@ -57,6 +57,9 @@ nav {
     justify-content: space-between;
     align-items: baseline;
     color: var(--PRIMARY-TEXT-COLOR);
+    padding: 10px 20px;
+    background-color: white;
+    border-radius: 15px;
 }
 
 .location {
@@ -128,6 +131,11 @@ nav {
     margin: 5px auto;
     transition: all 0.3s ease-in-out;
     background-color: #0a2348;
+}
+
+.theme-toggler {
+    cursor: pointer;
+    font-size: 1.3em; 
 }
 
 /* || MAIN WEATHER REPORT BOX */
@@ -668,6 +676,11 @@ footer .copyright {
     .more-detail-box {
         height: 120px;
     }
+    #theme-toggler {
+        cursor: pointer;
+        font-size: 1.3em;
+        margin-left: -30px; 
+    }
 }
 
 @media screen and (max-width: 570px) {
@@ -709,6 +722,10 @@ footer .copyright {
     .hourly-temperature-heading h2 {
         font-size: 20px;
     }
+    #theme-toggler {
+        display:none;
+        cursor: pointer;  
+    }
 }
 
 @media screen and (max-width: 380px) {
@@ -739,4 +756,60 @@ footer .copyright {
         width: 100px;
         height: 120px;
     }
+    
 }
+    .fa-moon {
+  height: 4rem;
+  width: 4rem;
+  font-size: 1.7rem;
+  line-height: 4rem;
+  background: var(--black-color);
+  color: var(--white-color);
+  text-align: right;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-right: 0.7rem;
+  } 
+
+body.active {
+    background-color: white;
+    color: black;
+}
+
+body.active {
+    background-color: black;
+    color: white;
+}
+
+
+body.active a {
+    color: white; 
+}
+
+body.active .container {
+    background-color: #222; 
+}
+
+.fas.fa-star {
+    height: 4rem;
+  width: 4rem;
+  font-size: 1.7rem;
+  line-height: 4rem;
+  background: var(--black-color);
+  color: var(--white-color);
+  text-align: right;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-right: 0.7rem; 
+}
+
+.fa-moon:hover {
+  background: var(--clr-primary-5);
+  color: black;
+  transform: rotate(360deg);
+}
+.fa-star:hover {
+    background: var(--clr-primary-5);
+    color: black;
+    transform: rotate(360deg);
+  }
