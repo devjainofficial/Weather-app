@@ -78,17 +78,17 @@ weatherReport('New Delhi');
 function Airpurity(index) {
 	switch (index) {
 		case 1:
-			return "Good"
+			return "90+"
 		case 2:
-			return "Moderate"
+			return "80"
 		case 3:
-			return "Unhealthy for sensitive group"
+			return "70"
 		case 4:
-			return "Unhealthy"
+			return "60"
 		case 5:
-			return "Very Unhealthy"
+			return "50"
 		case 6:
-			return "Hazardous"
+			return "40"
 	}
 }
 
@@ -104,7 +104,7 @@ function todayWeatherReport() {
     weatherHumidity.innerHTML = responseData.current.humidity + '%'
     weatherAirPurity.innerHTML = Airpurity(
 			parseInt(responseData.current.air_quality["us-epa-index"])
-		)
+		) + '%'
     // Box-2
     sunriseTime.innerHTML = responseData.forecast.forecastday[0].astro.sunrise;
     sunsetTime.innerHTML = responseData.forecast.forecastday[0].astro.sunset;
