@@ -27,6 +27,7 @@ var weatherDescription = document.getElementById('description');
 var weatherPressure = document.getElementById('pressure');
 var weatherVisibilty = document.getElementById('visibility');
 var weatherHumidity = document.getElementById('humidity');
+var weatherAirPurity = document.getElementById('air-quality')
 
 // box-2
 var sunriseTime = document.getElementById('sunrise-time');
@@ -74,11 +75,26 @@ async function weatherReport(searchCity) {
 // || By default city
 weatherReport('New Delhi');
 
+function Airpurity(index) {
+	switch (index) {
+		case 1:
+			return "Good"
+		case 2:
+			return "Moderate"
+		case 3:
+			return "Unhealthy for sensitive group"
+		case 4:
+			return "Unhealthy"
+		case 5:
+			return "Very Unhealthy"
+		case 6:
+			return "Hazardous"
+	}
+}
 
 function todayWeatherReport() {
     city.innerHTML = responseData.location.name;
     country.innerHTML = ' <i class="fa-sharp fa-solid fa-location-dot"></i>' + responseData.location.country;
-
     // Box-1
     cityTemp.innerHTML = responseData.current.temp_c;
     weatherDescription.innerHTML = responseData.current.condition.text;
@@ -86,7 +102,9 @@ function todayWeatherReport() {
     weatherPressure.innerHTML = responseData.current.pressure_mb + 'mb'
     weatherVisibilty.innerHTML = responseData.current.vis_km + ' km'
     weatherHumidity.innerHTML = responseData.current.humidity + '%'
-
+    weatherAirPurity.innerHTML = Airpurity(
+			parseInt(responseData.current.air_quality["us-epa-index"])
+		)
     // Box-2
     sunriseTime.innerHTML = responseData.forecast.forecastday[0].astro.sunrise;
     sunsetTime.innerHTML = responseData.forecast.forecastday[0].astro.sunset;

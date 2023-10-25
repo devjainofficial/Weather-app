@@ -264,6 +264,9 @@ nav {
     background-color: var(--LIGHT-BG-COLOR);
 
 }
+.weather-details div:nth-child(4){
+    background-color: #8adbf8;
+}
 
 /* || BOX-2 */
 
