@@ -745,7 +745,7 @@ nav {
 /* Footer CSS */
 
 footer h3{
-    color: white;
+  color: white;
 }
 
 .s-footer {
@@ -757,12 +757,10 @@ footer h3{
 }
 
 .footer {
-    
   position: relative;
   width: 100%;
   background: #FFAE19;
   min-height: 60px;
-  
   display: flex;
   justify-content: center;
   align-items: center;
