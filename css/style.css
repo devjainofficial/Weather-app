@@ -617,6 +617,9 @@ nav {
     .sunrise-sunset {
         margin-inline: 20px;
     }
+    .s-footer{
+        margin-top: 80px;
+    }
 
 }
 
@@ -668,6 +671,9 @@ nav {
     .more-detail-box {
         height: 120px;
     }
+    .s-footer{
+        margin-top: 80px;
+    }
 }
 
 @media screen and (max-width: 570px) {
@@ -709,6 +715,9 @@ nav {
     .hourly-temperature-heading h2 {
         font-size: 20px;
     }
+    .s-footer{
+        margin-top: 80px;
+    }
 }
 
 @media screen and (max-width: 380px) {
@@ -739,6 +748,11 @@ nav {
         width: 100px;
         height: 120px;
     }
+    .s-footer{
+        margin-top: 80px;
+    }
+
+   
 }
 
 /* Footer CSS */
@@ -752,7 +766,7 @@ footer h3{
   background: white;
   justify-content: flex-end;
   align-items: flex-end;
-  min-height: 100vh;
+  margin-top: 70px;
 }
 
 .footer {

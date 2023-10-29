@@ -8,9 +8,9 @@ hamburger.addEventListener('click', () => {
     slidebar.classList.toggle('active');
 })
 
-// || copyrights
-const copyright = document.getElementById('copyright');
-copyright.innerHTML = new Date().getFullYear();
+// // || copyrights
+// const copyright = document.getElementById('copyright');
+// copyright.innerHTML = new Date().getFullYear();
 
 
 // || MAIN WEATHER FUNCTIONALITY
