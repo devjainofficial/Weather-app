@@ -8,9 +8,9 @@ hamburger.addEventListener('click', () => {
     slidebar.classList.toggle('active');
 })
 
-// || copyrights
-const copyright = document.getElementById('copyright');
-copyright.innerHTML = new Date().getFullYear();
+// // || copyrights
+// const copyright = document.getElementById('copyright');
+// copyright.innerHTML = new Date().getFullYear();
 
 
 // || MAIN WEATHER FUNCTIONALITY
@@ -53,7 +53,7 @@ var aqi = document.querySelector('.aqi');
 // || GLOBAL VARIABLES
 var weatherApi;
 var responseData;
-var monthName = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+var monthName = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 var weekDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
 // || FUNCTION FOR GET WEATHER REPORT
