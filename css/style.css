@@ -300,6 +300,11 @@ nav {
     font-weight: 100;
 }
 
+.more-detail-box:hover{
+background-color: #ffffff;
+color: #0a2348;
+}
+
 .more-detail-box p {
     font-size: var(--SMALL-TEXT);
 }
@@ -319,6 +324,8 @@ nav {
     white-space: nowrap;
     margin-right: -10px;
 }
+
+
 
 .sunrise span,
 .sunset span {
@@ -415,7 +422,15 @@ nav {
     flex-direction: column;
     align-items: center;
     flex-wrap: row;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2)
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s;
+}
+
+
+.hours-box:hover {
+   
+    background-color: #0a2348;
+    color: var(--LIGHT-BG-COLOR);
 }
 
 .hours-box p {
@@ -537,6 +552,12 @@ nav {
         -5px -5px 10px #f4f4f4;
 }
 
+.days-box:hover {
+    background-color: #0a2348;
+    color: #ffffff;
+}
+
+
 .days-box img {
     width: 50px;
     margin-right: 14px;
@@ -557,7 +578,7 @@ nav {
 }
 
 .days .prediction-desc {
-    color: var(--PRIMARY-BG-COLOR);
+    /* color: var(--PRIMARY-BG-COLOR); */
     font-weight: 700;
 }
 
