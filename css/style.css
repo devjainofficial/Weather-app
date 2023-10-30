@@ -93,7 +93,7 @@ nav {
     padding-left: 20px;
     font-weight: 500;
     font-size: 16px;
-    border: 1.5px solid #e3e4e5b1;
+    border: 1.5px solid #e3e4e59b;
 }
 
 ::placeholder {
@@ -101,16 +101,32 @@ nav {
 }
 
 .search-area i {
+    display: flex;
     position: absolute;
-    top: 12px;
+    top: 1px;
     right: 0;
     color: orange;
     cursor: pointer;
     font-size: 18px;
-    width: 50px;
-    text-align: center;
+    height: 40px;
+    width: 40px;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    padding: auto;
+    background-color: transparent;
+    border-radius: 50%;
+    outline: none; 
+    transition: 0.2s all
 }
 
+/* button click effect */
+.search-area i:active { 
+    transform: scale(0.90); 
+    /* Scaling button to 0.98 to its original size */ 
+    box-shadow: 3px 2px 22px 1px #2d2d2d4e 
+    /* Lowering the shadow */ 
+}
 /* Hamburger */
 .hamburger {
     display: none;

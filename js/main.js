@@ -63,17 +63,13 @@ async function weatherReport(searchCity) {
     responseData = await weatherApi.json();
 
     todayWeatherReport();
-    console.log(responseData);
+    //console.log(responseData);
 
     // Hours
     hoursWeatherReport();
     // Days
     forecastdayReport()
 }
-
-// || By default city
-weatherReport('New Delhi');
-
 
 function todayWeatherReport() {
     city.innerHTML = responseData.location.name;
@@ -176,14 +172,24 @@ function time() {
 
 }
 
+//Upated Time.
 setInterval(() => {
     time();
 }, 1000)
 
+// work on clicking on search icon.
+document.querySelector(".search-area button").addEventListener("click", function () {
+    weatherReport(searchCity.value);
+  });
+  
+//work on pressing enter key.
+searchCity.addEventListener("keydown", function (event) {
+    if (event.key == "Enter") {
+        weatherReport(searchCity.value);
+    }
+  });
 
-searchCity.addEventListener('keydown', () => {
-    weatherReport(searchCity.value)
-})
-
+// || By default city
+weatherReport('New Delhi');
 
 
