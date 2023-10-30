@@ -53,7 +53,7 @@ Contributions are welcome! If you find any issues or have suggestions for improv
 ## Our Contributors:
 
 <a href="https://github.com/devjainofficial/Weather-app/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=devjainofficial/Weather-app" />
+  <img src="https://github.com/devjainofficial/Weather-app/graphs/contributors" />
 </a>
 
 ## License
