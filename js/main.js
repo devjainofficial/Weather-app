@@ -1,4 +1,4 @@
-// || TOGGLE HAMBURGER BAR
+//  || TOGGLE HAMBURGER BAR
 const hamburger = document.querySelector(".hamburger");
 const slidebar = document.querySelector(".slidebar");
 
@@ -6,6 +6,10 @@ hamburger.addEventListener("click", () => {
   hamburger.classList.toggle("active");
   slidebar.classList.toggle("active");
 });
+
+// // || copyrights
+// const copyright = document.getElementById('copyright');
+// copyright.innerHTML = new Date().getFullYear();
 
 // || MAIN WEATHER FUNCTIONALITY
 
@@ -19,7 +23,7 @@ var cityTemp = document.getElementById("temp");
 var weatherIcon = document.getElementById("weather-icon");
 var weatherDescription = document.getElementById("description");
 var weatherPressure = document.getElementById("pressure");
-var weatherVisibility = document.getElementById("visibility");
+var weatherVisibilty = document.getElementById("visibility");
 var weatherHumidity = document.getElementById("humidity");
 
 // box-2
@@ -79,8 +83,12 @@ async function weatherReport(searchCity) {
   responseData = await weatherApi.json();
 
   todayWeatherReport();
-  // You can call other functions that depend on responseData here.
-  // For example: hoursWeatherReport(), forecastdayReport()
+  //console.log(responseData);
+
+  // Hours
+  hoursWeatherReport();
+  // Days
+  forecastdayReport();
 }
 
 function todayWeatherReport() {
@@ -94,13 +102,14 @@ function todayWeatherReport() {
   weatherDescription.innerHTML = responseData.current.condition.text;
   weatherIcon.setAttribute("src", responseData.current.condition.icon);
   weatherPressure.innerHTML = responseData.current.pressure_mb + "mb";
-  weatherVisibility.innerHTML = responseData.current.vis_km + " km";
+  weatherVisibilty.innerHTML = responseData.current.vis_km + " km";
   weatherHumidity.innerHTML = responseData.current.humidity + "%";
 
   // Box-2
   sunriseTime.innerHTML = responseData.forecast.forecastday[0].astro.sunrise;
   sunsetTime.innerHTML = responseData.forecast.forecastday[0].astro.sunset;
-  uviRays.innerHTML = Math.round(responseData.current.air_quality.pm2_5);
+  uviRays.innerHTML = responseData.current.uv + " UVI";
+  // aqi.innerHTML = Math.round(responseData.current.air_quality.pm2_5);
 
   checkUVraysIndex();
   time();
@@ -118,7 +127,7 @@ function checkUVraysIndex() {
   } else if (uviLevel <= 10) {
     checkUviValue("Very high", "#d43114");
   } else {
-    checkUviValue("Extreme high", "#dc15cf");
+    checkUviValue("Etreme high", "#dc15cf");
   }
 }
 
@@ -182,24 +191,24 @@ function time() {
   } ${today.getFullYear()}, ${weekDays[today.getDay()]}`;
 }
 
-// Updated Time.
+//Upated Time.
 setInterval(() => {
   time();
 }, 1000);
 
-// work on clicking on the search icon.
+// work on clicking on search icon.
 document
   .querySelector(".search-area button")
   .addEventListener("click", function () {
     weatherReport(searchCity.value);
   });
 
-// work on pressing the Enter key.
+//work on pressing enter key.
 searchCity.addEventListener("keydown", function (event) {
   if (event.key == "Enter") {
     weatherReport(searchCity.value);
   }
 });
 
-// By default city
+// || By default city
 weatherReport("New Delhi");
