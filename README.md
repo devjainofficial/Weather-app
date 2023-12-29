@@ -4,6 +4,9 @@ Global Weather App is a user-friendly weather application that allows users to c
 
 <p>Click here to see live application: https://global-weather-app-dev.netlify.app</p> 
 
+<p>Click here to see updated (Dark mode toggle) live application: https://updated-weather-app.netlify.app/</p> 
+
+
 <div align="center">
 
 [![Open Source Love](https://firstcontributions.github.io/open-source-badges/badges/open-source-v1/open-source.svg)](https://github.com/devjainofficial/Weather-app)
