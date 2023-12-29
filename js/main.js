@@ -173,7 +173,7 @@ function forecastdayReport() {
     ).getDate();
     let weekday =
       weekDays[
-        new Date(responseData.forecast.forecastday[index].date).getDay()
+      new Date(responseData.forecast.forecastday[index].date).getDay()
       ];
 
     day.innerHTML = `${weekday} ${weekdate}`;
@@ -186,9 +186,8 @@ function time() {
   currentTime.innerHTML = now;
 
   var today = new Date(responseData.forecast.forecastday[0].date);
-  currentDate.innerHTML = `${today.getDate()} ${
-    monthName[today.getMonth()]
-  } ${today.getFullYear()}, ${weekDays[today.getDay()]}`;
+  currentDate.innerHTML = `${today.getDate()} ${monthName[today.getMonth()]
+    } ${today.getFullYear()}, ${weekDays[today.getDay()]}`;
 }
 
 //Upated Time.
@@ -210,5 +209,60 @@ searchCity.addEventListener("keydown", function (event) {
   }
 });
 
+
+// Added JS Code for toggling between dark and light mode 
+function toggleDarkMode() {
+  document.body.classList.toggle('dark-mode');
+
+  document.querySelector('.container').classList.toggle('dark-mode');
+  document.querySelector('.slidebar').classList.toggle('dark-mode');
+
+}
+
+
+
+
+document.addEventListener('DOMContentLoaded', function () {
+  const darkModeToggle = document.getElementById('darkModeToggle');
+  const darkModeText = document.getElementById('darkModeText');
+
+  darkModeToggle.addEventListener('change', function () {
+    document.body.classList.toggle('dark-mode');
+    if (document.body.classList.contains('dark-mode')) {
+      darkModeText.textContent = 'Light Mode';
+    } else {
+      darkModeText.textContent = 'Dark Mode';
+    }
+  });
+
+
+  if (localStorage.getItem('dark-mode') === 'enabled') {
+    document.body.classList.add('dark-mode');
+    darkModeToggle.checked = true;
+    darkModeText.textContent = 'Light Mode';
+  }
+});
+
+// Saving to local storage
+document.addEventListener('DOMContentLoaded', function () {
+  const darkModeToggle = document.getElementById('darkModeToggle');
+
+  darkModeToggle.addEventListener('change', function () {
+    if (darkModeToggle.checked) {
+      document.body.classList.add('dark-mode');
+      localStorage.setItem('dark-mode', 'enabled');
+    } else {
+      document.body.classList.remove('dark-mode');
+      localStorage.setItem('dark-mode', null);
+    }
+  });
+});
+
+
+
 // || By default city
 weatherReport("New Delhi");
+
+
+
+
