@@ -80,6 +80,7 @@ nav {
 .search-area {
     position: relative;
     width: 300px;
+    padding-left: 40px;
 }
 
 .search-area input {
@@ -116,17 +117,18 @@ nav {
     padding: auto;
     background-color: transparent;
     border-radius: 50%;
-    outline: none; 
+    outline: none;
     transition: 0.2s all
 }
 
 /* button click effect */
-.search-area i:active { 
-    transform: scale(0.90); 
-    /* Scaling button to 0.98 to its original size */ 
-    box-shadow: 3px 2px 22px 1px #2d2d2d4e 
-    /* Lowering the shadow */ 
+.search-area i:active {
+    transform: scale(0.90);
+    /* Scaling button to 0.98 to its original size */
+    box-shadow: 3px 2px 22px 1px #2d2d2d4e
+        /* Lowering the shadow */
 }
+
 /* Hamburger */
 .hamburger {
     display: none;
@@ -300,9 +302,9 @@ nav {
     font-weight: 100;
 }
 
-.more-detail-box:hover{
-background-color: #ffffff;
-color: #0a2348;
+.more-detail-box:hover {
+    background-color: #ffffff;
+    color: #0a2348;
 }
 
 .more-detail-box p {
@@ -428,7 +430,7 @@ color: #0a2348;
 
 
 .hours-box:hover {
-   
+
     background-color: #0a2348;
     color: var(--LIGHT-BG-COLOR);
 }
@@ -654,7 +656,8 @@ color: #0a2348;
     .sunrise-sunset {
         margin-inline: 20px;
     }
-    .s-footer{
+
+    .s-footer {
         margin-top: 80px;
     }
 
@@ -708,7 +711,8 @@ color: #0a2348;
     .more-detail-box {
         height: 120px;
     }
-    .s-footer{
+
+    .s-footer {
         margin-top: 80px;
     }
 }
@@ -752,7 +756,8 @@ color: #0a2348;
     .hourly-temperature-heading h2 {
         font-size: 20px;
     }
-    .s-footer{
+
+    .s-footer {
         margin-top: 80px;
     }
 }
@@ -785,121 +790,249 @@ color: #0a2348;
         width: 100px;
         height: 120px;
     }
-    .s-footer{
+
+    .s-footer {
         margin-top: 80px;
     }
 
-   
+
 }
 
 /* Footer CSS */
 
-footer h3{
-  color: white;
+footer h3 {
+    color: white;
 }
 
 .s-footer {
-  display: flex;
-  background: white;
-  justify-content: flex-end;
-  align-items: flex-end;
-  margin-top: 70px;
+    display: flex;
+    background: white;
+    justify-content: flex-end;
+    align-items: flex-end;
+    margin-top: 70px;
 }
 
 .footer {
-  position: relative;
-  width: 100%;
-  background: #FFAE19;
-  min-height: 60px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+    position: relative;
+    width: 100%;
+    background: #FFAE19;
+    min-height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
-.social-icon{
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 10px 0;
-  flex-wrap: wrap;
+.social-icon {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+    flex-wrap: wrap;
 }
 
-.social-icon__item{
-  list-style: none;
+.social-icon__item {
+    list-style: none;
 }
 
 .social-icon__link {
-  font-size: 2rem;
-  color: #fff;
-  margin: 0 30px;
-  display: inline-block;
-  transition: 0.5s;
+    font-size: 2rem;
+    color: #fff;
+    margin: 0 30px;
+    display: inline-block;
+    transition: 0.5s;
 }
+
 .social-icon__link:hover {
-  transform: translateY(-10px);
+    transform: translateY(-10px);
 }
 
 .footer p {
-  color: #fff;
-  margin: 15px 0 10px 0;
-  font-size: 1rem;
-  font-weight: 300;
+    color: #fff;
+    margin: 15px 0 10px 0;
+    font-size: 1rem;
+    font-weight: 300;
 }
 
 .wave {
-  position: absolute;
-  top: -100px;
-  left: 0;
-  width: 100%;
-  height: 100px;
-  background: url("../images/footer.png");
-  background-size: 1000px 100px;
+    position: absolute;
+    top: -100px;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: url("../images/footer.png");
+    background-size: 1000px 100px;
 }
 
 .wave#wave1 {
-  z-index: 1000;
-  opacity: 0.3;
-  bottom: 0;
-  animation: animateWaves 4s linear infinite;
+    z-index: 1000;
+    opacity: 0.3;
+    bottom: 0;
+    animation: animateWaves 4s linear infinite;
 }
 
 .wave#wave2 {
-  z-index: 999;
-  opacity: 0.6;
-  bottom: 10px;
-  animation: animate 4s linear infinite !important;
+    z-index: 999;
+    opacity: 0.6;
+    bottom: 10px;
+    animation: animate 4s linear infinite !important;
 }
 
 .wave#wave3 {
-  z-index: 1000;
-  opacity: 0.3;
-  bottom: 15px;
-  animation: animateWaves 3s linear infinite;
+    z-index: 1000;
+    opacity: 0.3;
+    bottom: 15px;
+    animation: animateWaves 3s linear infinite;
 }
 
 .wave#wave4 {
-  z-index: 999;
-  opacity: 0.5;
-  bottom: 20px;
-  animation: animate 3s linear infinite;
+    z-index: 999;
+    opacity: 0.5;
+    bottom: 20px;
+    animation: animate 3s linear infinite;
 }
 
 @keyframes animateWaves {
-  0% {
-    background-position-x: 1000px;
-  }
-  100% {
-    background-positon-x: 0px;
-  }
+    0% {
+        background-position-x: 1000px;
+    }
+
+    100% {
+        background-positon-x: 0px;
+    }
 }
 
 @keyframes animate {
-  0% {
-    background-position-x: -1000px;
-  }
-  100% {
-    background-positon-x: 0px;
-  }
+    0% {
+        background-position-x: -1000px;
+    }
+
+    100% {
+        background-positon-x: 0px;
+    }
+}
+
+/* Add this to your existing CSS */
+.dark-mode-toggle {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+
+
+    /* Adjust margin as needed */
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+    margin-right: 10px;
+    /* Adjust margin as needed */
+}
+
+.switch input {
+    display: none;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+}
+
+/* Had initialized the dark mode here */
+body.dark-mode {
+    /* Update background and text colors for dark mode */
+    --PRIMARY-TEXT-COLOR: #ffffff;
+    --SECONDARY-TEXT-COLOR: #0a2348;
+    --PRIMARY-BG-COLOR: #1a1a1a;
+    --SECONDARY-BG-COLOR: #2b2b2b;
+    --LIGHT-BG-COLOR: #333333;
+
+    --SMALL-TEXT: 14px;
+    --LETTER-SPACING: 0.8px;
+    --LIGHT-TEXT: #f4f4f4;
+}
+
+.dark-mode .slider {
+    background-color: #ffffff;
+    /* Light background color for the switch */
+}
+
+.dark-mode .slider:before {
+    background-color: #121212;
+    color: whitesmoke;
+    /* Dark color for the slider ball */
+}
+
+.dark-mode .location {
+    color: white;
+}
+
+.dark-mode .weather-box2 {
+    color: white;
+}
+
+.dark-mode .weather-details .box {
+    color: var(--PRIMARY-TEXT-COLOR);
+}
+
+.dark-mode .more-detail-box {
+    color: var(--PRIMARY-TEXT-COLOR);
+}
+
+.dark-mode .more-detail-box:hover {
+    color: black;
+}
+
+.dark-mode .search-area {
+    color: black;
+}
+
+.dark-mode .search-area input {
+    color: black;
+}
+
+.dark-mode ::placeholder {
+    color: black;
+}
+
+.dark-mode .weather-description {
+    color: black;
+}
+
+.dark-mode .weather-temperature {
+    color: black;
+}
+
+
+
+input:checked+.slider {
+    background-color: #2b1c1c;
+    color: white;
+    col
+}
+
+input:checked+.slider:before {
+    transform: translateX(26px);
 }

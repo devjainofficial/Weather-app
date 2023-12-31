@@ -4,6 +4,9 @@ Global Weather App is a user-friendly weather application that allows users to c
 
 <p>Click here to see live application: https://global-weather-app-dev.netlify.app</p> 
 
+<p>Click here to see updated (Dark mode toggle) live application: https://updated-weather-app.netlify.app/</p> 
+
+
 <div align="center">
 
 [![Open Source Love](https://firstcontributions.github.io/open-source-badges/badges/open-source-v1/open-source.svg)](https://github.com/devjainofficial/Weather-app)
@@ -20,6 +23,7 @@ Global Weather App is a user-friendly weather application that allows users to c
 - **User-Friendly Interface:** The application is designed with simplicity in mind, ensuring a seamless user experience.
 - **Responsive Design:** Access the weather information on various devices, including desktops, tablets, and smartphones.
 - **Easy to Use:** Intuitive design makes it easy for users to quickly find weather information for their desired locations.
+- **Light/dark mode :** Easily toggle between light and dark mode, enhancing user experience.
 
 ## Technologies Used
 
@@ -44,7 +48,14 @@ Press the "Get Weather" button to view the current temperature and other weather
 
 ## Screenshots
 
+**Light mode**
+
 ![image](https://github.com/devjainofficial/Weather-app/assets/69387311/2383af03-0ab9-424b-a4bb-95946f367c5d)
+
+**Dark mode**
+
+![darkmode](https://github.com/abhijeetsharnagat/Weather-app/assets/108009757/f77685f8-c428-416c-8992-56ac008c7d77)
+
 
 ## Contributing
 
@@ -55,6 +66,8 @@ Contributions are welcome! If you find any issues or have suggestions for improv
 <a href="https://github.com/devjainofficial/Weather-app/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=devjainofficial/Weather-app" />
 </a>
+
+
 
 ## License
 
