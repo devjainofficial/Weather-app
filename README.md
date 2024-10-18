@@ -10,7 +10,7 @@ The **Global Weather App** is a user-friendly weather application that allows us
 <div align="center">
 
 [![Open Source Love](https://firstcontributions.github.io/open-source-badges/badges/open-source-v1/open-source.svg)](https://github.com/devjainofficial/Weather-app)
-<img src="https://img.shields.io/badge/HacktoberFest-2023-blueviolet" alt="HacktoberFest Badge"/>
+<img src="https://img.shields.io/badge/HacktoberFest-2024-blueviolet" alt="HacktoberFest Badge"/>
 <img src="https://img.shields.io/static/v1?label=%E2%AD%90&message=If%20Useful&style=style=flat&color=BC4E99" alt="Star Badge"/>
 <a href="https://github.com/devjainofficial" ><img src="https://img.shields.io/badge/Contributions-welcome-green.svg?style=flat&logo=github" alt="Contributions" /></a>
 
