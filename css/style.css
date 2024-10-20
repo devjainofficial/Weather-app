@@ -1025,7 +1025,9 @@ body.dark-mode {
 .dark-mode .weather-temperature {
     color: black;
 }
-
+.dark-mode .hours-box:hover {
+    color:white;
+}
 
 
 input:checked+.slider {
