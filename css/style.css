@@ -59,6 +59,18 @@ nav {
     color: var(--PRIMARY-TEXT-COLOR);
 }
 
+.dynamic-bg {
+    background-color: var(--PRIMARY-BG-COLOR) !important;
+    color: var(--PRIMARY-TEXT-COLOR);
+}
+
+.ok-btn {
+    padding: 5px 15px;
+    background-color: var(--SECONDARY-BG-COLOR);
+    color: var(--PRIMARY-TEXT-COLOR);
+    border-radius: var(--STANDERED-RADIUS);
+}
+
 .location {
     white-space: wrap;
 }

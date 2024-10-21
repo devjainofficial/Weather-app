@@ -54,6 +54,28 @@ async function getWeatherReport(searchCity) {
   }
 }
 
+// function to ask and get current location
+function updateCurrentLocation() {
+  // callback for location api after successfully fetching current position
+  function successPosition(position) {
+    const lat = position.coords.latitude;
+    const long = position.coords.longitude;
+
+    const cityParams = `${lat},${long}`
+    getWeatherReport(cityParams)
+  }
+
+  // callback for location api after error on fetching current position
+  function errorPosition() {
+    alert("Unable to detect location")
+  }
+
+  // main location permission
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(successPosition, errorPosition)
+  }
+}
+
 function updateWeatherUI(data) {
   updateCurrentWeather(data);
   updateHourlyForecast(data);
@@ -152,28 +174,6 @@ elements.hamburger.addEventListener('click', () => {
   elements.hamburger.classList.toggle('active');
   elements.slidebar.classList.toggle('active');
 });
-
-document.addEventListener('DOMContentLoaded', async () => {
-
-  // callback for location api after successfully fetching current position
-  function successPosition(position) {
-    const lat = position.coords.latitude;
-    const long = position.coords.longitude;
-
-    const cityParams = `${lat},${long}`
-    getWeatherReport(cityParams)
-  }
-
-  // callback for location api after error on fetching current position
-  function errorPosition() {
-    alert("Unable to detect location")
-  }
-
-  // main location permission
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(successPosition, errorPosition)
-  }
-})
 
 document.querySelector('.search-area button').addEventListener('click', () => {
   getWeatherReport(elements.searchCity.value);
