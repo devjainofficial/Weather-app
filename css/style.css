@@ -60,7 +60,7 @@ nav {
 }
 
 .dynamic-bg {
-    background-color: var(--PRIMARY-BG-COLOR) !important;
+    background-color: var(--SECONDARY-BG-COLOR) !important;
     color: var(--PRIMARY-TEXT-COLOR);
 }
 
@@ -1045,7 +1045,6 @@ body.dark-mode {
 input:checked+.slider {
     background-color: #2b1c1c;
     color: white;
-    col
 }
 
 input:checked+.slider:before {
