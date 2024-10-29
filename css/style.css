@@ -92,7 +92,7 @@ nav {
 .search-area {
     position: relative;
     width: 300px;
-    padding-left: 40px;
+    padding-left: 20px;
 }
 
 .search-area input {
@@ -146,8 +146,8 @@ nav {
 .hamburger {
     display: none;
     position: absolute;
-    right: 30px;
-    top: 46px;
+    left: 10px;
+    top: 30px;
     cursor: pointer;
     margin-left: 20px;
 }
