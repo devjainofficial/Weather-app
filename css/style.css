@@ -1,6 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,700&family=Nunito:wght@400;700&family=Open+Sans:ital,wght@1,300&family=Poppins&family=Roboto&family=Source+Sans+Pro:ital,wght@0,400;0,700;1,400&display=swap');
 
-/* || RESET */
+/* || RESET STYLES 
+    - Ensures consistent padding, margin, and box model across elements.
+    - Sets a default font for the entire app.
+*/
 * {
     padding: 0;
     margin: 0;
@@ -8,7 +11,10 @@
     font-family: 'Poppins', sans-serif;
 }
 
-/* || ROOT */
+/* || ROOT VARIABLES 
+    - Defines primary color scheme and common sizes for consistency.
+    - Modify these to update the overall theme.
+*/
 :root {
 
     /* COLORS */
@@ -35,6 +41,10 @@ body {
 
 
 /* || STARTING */
+/* || MAIN CONTAINER
+    - Sets the layout for the main content container, ensuring it occupies full viewport height.
+    - Centers content horizontally with auto margins.
+*/
 .container {
     position: relative;
     width: 100%;
@@ -44,6 +54,10 @@ body {
     margin: 0 auto;
 }
 
+/* || WEATHER REPORT BOX
+    - Styles the main weather report area with padding for spacing.
+    - Assigns a minimum width for readability on smaller screens.
+*/
 .weather-report {
     min-width: 350px;
     flex: 1;
@@ -51,7 +65,10 @@ body {
     padding: var(--STANDERED-PADDING);
 }
 
-/* || NAVIGATION BAR */
+/* || NAVIGATION BAR 
+    - Aligns navigation links and logo with flexible spacing.
+    - Uses primary colors to keep consistency with branding.
+*/
 nav {
     display: flex;
     justify-content: space-between;
@@ -131,14 +148,14 @@ nav {
     background-color: transparent;
     border-radius: 50%;
     outline: none;
-    transition: 0.2s all
+    transition: 0.2s all;  /* Smooth transition for hover effects */
 }
 
-/* button click effect */
+/* Click Animation Effect */
 .search-area i:active {
     transform: scale(0.90);
     /* Scaling button to 0.98 to its original size */
-    box-shadow: 3px 2px 22px 1px #2d2d2d4e
+    box-shadow: 3px 2px 22px 1px #2d2d2d4e; /* Subtle shadow for depth */
         /* Lowering the shadow */
 }
 
@@ -189,6 +206,7 @@ nav {
 }
 
 /* || BOX-1 */
+/* Weather Box Gradient Background */
 .weather-box1 {
     background: linear-gradient(to right bottom, #b7f1f3, #feddcd);
 
@@ -635,7 +653,9 @@ nav {
 
 
 
-/* || RESPONSIVENESS */
+/* || RESPONSIVENESS 
+- Adjusts layout and sizes for screens smaller than 1020px.
+*/
 @media screen and (max-width: 1020px) {
 
     .weather-report {
@@ -678,7 +698,7 @@ nav {
 }
 
 @media screen and (max-width: 768px) {
-
+    /* Shows hamburger menu for navigation on smaller screens */
     .hamburger {
         display: block;
         z-index: 5;
@@ -697,7 +717,7 @@ nav {
     }
 
     .search-area {
-        margin-right: 60px;
+        margin-right: 60px;/* Aligns search bar with screen */
     }
 
     .temperature img {
@@ -813,11 +833,18 @@ nav {
 }
 
 /* Footer CSS */
-
+/* || FOOTER STYLES 
+    - Defines styling for footer section and social icons.
+    - Includes wave animation for aesthetic effect.
+*/
 footer h3 {
     color: white;
 }
 
+/* Footer Wrapper 
+    - Aligns content to the bottom right of the footer area.
+    - Adds top margin for spacing.
+*/
 .s-footer {
     display: flex;
     background: white;
@@ -826,6 +853,10 @@ footer h3 {
     margin-top: 70px;
 }
 
+/* Main Footer Container 
+    - Centralizes footer content both vertically and horizontally.
+    - Uses a column layout for stacking elements.
+*/
 .footer {
     position: relative;
     width: 100%;
@@ -837,6 +868,10 @@ footer h3 {
     flex-direction: column;
 }
 
+/* Social Icons Section 
+    - Flexbox to center and wrap social icons.
+    - Provides margin for spacing between icons.
+*/
 .social-icon {
     position: relative;
     display: flex;
@@ -850,6 +885,11 @@ footer h3 {
     list-style: none;
 }
 
+
+/* Social Icon Links 
+    - Enlarges icons for prominence.
+    - Adds a transition for a smooth hover effect.
+*/
 .social-icon__link {
     font-size: 2rem;
     color: #fff;
@@ -869,6 +909,9 @@ footer h3 {
     font-weight: 300;
 }
 
+/* Background Wave Effect 
+    - Positions a wave image above the footer for visual interest.
+*/
 .wave {
     position: absolute;
     top: -100px;
@@ -879,6 +922,10 @@ footer h3 {
     background-size: 1000px 100px;
 }
 
+/* Individual Waves with Layering and Opacity
+    - Each wave uses different opacity and z-index for layering.
+    - Animations create a moving wave effect.
+*/
 .wave#wave1 {
     z-index: 1000;
     opacity: 0.3;
@@ -907,6 +954,9 @@ footer h3 {
     animation: animate 3s linear infinite;
 }
 
+/* || WAVE ANIMATION 
+    - Moves wave background horizontally for a flowing effect.
+*/
 @keyframes animateWaves {
     0% {
         background-position-x: 1000px;
@@ -928,6 +978,10 @@ footer h3 {
 }
 
 /* Add this to your existing CSS */
+/* || DARK MODE TOGGLE 
+    - Toggle switch for dark mode with smooth transition and rounded elements.
+    - Changes background and text colors for dark mode.
+*/
 .dark-mode-toggle {
     display: flex;
     align-items: center;
