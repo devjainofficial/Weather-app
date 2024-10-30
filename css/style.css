@@ -501,6 +501,7 @@ nav {
     margin: 30px 0 20px;
     color: #0a2348;
     padding: 10px;
+    filter: blur(2px);
 }
 
 .aqi-prediction .current-aqi {
