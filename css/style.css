@@ -290,7 +290,11 @@ nav {
     align-items: center;
     flex-direction: column;
 }
+.box:hover{
+    transition: transform 0.3s ease;
+    transform: scale(1.05);
 
+}
 .box p {
     font-size: var(--SMALL-TEXT);
     letter-spacing: 0;
@@ -334,6 +338,7 @@ nav {
 }
 
 .more-detail-box:hover {
+    transition: background-color 0.3s ease;
     background-color: #ffffff;
     color: #0a2348;
 }
@@ -456,7 +461,7 @@ nav {
     align-items: center;
     flex-wrap: row;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    transition: background-color 0.3s;
+   
 }
 
 
@@ -464,6 +469,8 @@ nav {
 
     background-color: #0a2348;
     color: var(--LIGHT-BG-COLOR);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+     transform: scale(1.05);
 }
 
 .hours-box p {
@@ -588,6 +595,8 @@ nav {
 .days-box:hover {
     background-color: #0a2348;
     color: #ffffff;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+     transform: scale(1.03);
 }
 
 
