@@ -2,6 +2,8 @@
 const API_KEY = 'da2103b2c4ce4f95af051626232503'; // Consider moving this to a secure environment variable
 const API_BASE_URL = 'https://api.weatherapi.com/v1/forecast.json';
 
+let intervalId = null // This variable will be used to clear setInterval each time the user change the time zone
+
 // DOM elements
 const elements = {
   city: document.getElementById('city'),
@@ -144,6 +146,7 @@ function updateDailyForecast(data) {
 }
 
 function updateTime(timezone) {
+  clearInterval(intervalId); // To prevent displaying multi times at the same time.
   const updateClock = () => {
     const now = new Date();
     const options = { timeZone: timezone, hour: '2-digit', minute: '2-digit', second: '2-digit' };
@@ -158,7 +161,7 @@ function updateTime(timezone) {
   };
 
   updateClock();
-  setInterval(updateClock, 1000);
+  intervalId = setInterval(updateClock, 1000);
 
   // Setting the date based on timezone
   const today = new Date(); // Get the current date in UTC
