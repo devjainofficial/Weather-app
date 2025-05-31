@@ -105,3 +105,42 @@ We value the amazing people who contribute to this project! You can check out al
 ## 📄 License
 
 This project is licensed under the [MIT License](LICENSE).
+
+## Project Structure
+
+*   `index.html`: The main HTML file for the weather application.
+*   `css/`: Contains stylesheets.
+    *   `style.css`: Main styles for the application.
+    *   `modal.css`: Styles for the initial location permission modal.
+*   `js/`: Contains JavaScript files.
+    *   `config.js`: (To be created by the user) Stores the API key. A `js/config.example.js` could be provided as a template if desired.
+    *   `main.js`: Core application logic, including API calls, UI updates, and event handling.
+    *   `modal.js`: Logic for the initial location permission modal.
+    *   `tests/main.test.js`: Basic unit tests for parts of the application logic.
+*   `images/`: Contains static image assets.
+*   `feature/`: Contains text files related to features.
+*   `.gitignore`: Specifies intentionally untracked files (e.g., `js/config.js`).
+*   `LICENSE`: The project's license file.
+
+## API Key Setup
+
+This project uses the WeatherAPI.com service. To fetch weather data, you need an API key.
+
+1.  Create a file named `config.js` inside the `js/` directory.
+2.  Add the following content to `js/config.js`, replacing `'YOUR_API_KEY_HERE'` with your actual API key:
+    ```javascript
+    const API_KEY = 'YOUR_API_KEY_HERE';
+    ```
+3.  The `js/config.js` file is included in `.gitignore` and should not be committed to version control.
+
+## Running Tests
+
+Basic unit tests are located in `js/tests/main.test.js`. To run these tests:
+
+1.  Ensure you have set up your API key as described above (though tests for `updateUVIndex` don't require the API key to run).
+2.  Manually add the test script to your `index.html` file before the closing `</body>` tag:
+    ```html
+    <script src="js/tests/main.test.js"></script>
+    ```
+3.  Open `index.html` in your web browser.
+4.  Open the browser's developer console to see the test results.

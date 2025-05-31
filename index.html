@@ -29,12 +29,7 @@
         <!-- end of contents inside modal -->
       </p>
       <!-- an IIFE is set to invoke the function on button call -->
-      <button class="ok-btn" onclick="(() => {
-            updateCurrentLocation()
-            closeModal(true)
-        })()">
-        Ok
-      </button>
+      <button id="modalOkButton" class="ok-btn">Ok</button>
     </div>
   </div>
 
@@ -42,6 +37,7 @@
   <div class="container">
     <!--|| MAIN WEATHER REPORT BOX (RIGHT-SIDE) -->
     <div class="weather-report">
+      <div id="error-message-container" class="error-message" style="display: none; color: red; text-align: center; padding: 10px; margin-bottom: 10px; background-color: #ffebeb; border: 1px solid red; border-radius: 5px;"></div>
       <!-- || NAVIGATION BAR -->
       <nav>
         <div class="location">
@@ -73,7 +69,7 @@
       <!-- || CURRENT WEATHER STATUS BOX -->
       <div class="current-status">
         <!-- BOX-1  MAIN WEATHER BOX-->
-        <div class="weather weather-box1">
+        <section class="weather weather-box1">
           <div class="weather-heading">
             <div class="weather-icon">
               <i class="fa-solid fa-cloud"></i>
@@ -457,6 +453,7 @@
     </footer>
   </div>
 
+  <script src="js/config.js"></script>
   <script src="js/main.js"></script>
   <script src="js/modal.js"></script>
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
