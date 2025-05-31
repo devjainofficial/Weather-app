@@ -50,6 +50,7 @@ async function getWeatherReport(searchCity) {
     const response = await fetch(`${API_BASE_URL}?key=${API_KEY}&q=${searchCity}&days=7&aqi=yes&alerts=no`);
     const data = await response.json();
     updateWeatherUI(data);
+    localStorage.setItem('city',searchCity);
   } catch (error) {
     console.error('Error fetching weather data:', error);
     // TODO: Implement user-friendly error handling
@@ -210,4 +211,4 @@ if (localStorage.getItem('dark-mode') === 'enabled') {
 }
 
 // Initialize weather app with default city
-getWeatherReport('New Delhi');
+getWeatherReport(localStorage.getItem("city") ?? 'New Delhi');
