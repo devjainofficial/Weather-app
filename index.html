@@ -5,62 +5,69 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Weather app</title>
+  <title>Weather App</title>
+
+  <!-- Stylesheets -->
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/modal.css" />
+
+  <!-- Favicon -->
   <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+
+  <!-- FontAwesome Icons -->
   <script src="https://kit.fontawesome.com/f5c8e13b2d.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-  <!-- || LOCATION MODAL -->
-  <!-- The Modal -->
+  <!-- ========================= LOCATION MODAL ========================= -->
   <div id="generic_modal" class="modal" data-open="open" data-closable="no">
-    <!-- Modal content -->
     <div class="modal-content dynamic-bg">
-      <!-- close button -->
-      <!-- <span class="close">&times;</span> -->
-
-      <!-- contents inside modal -->
       <h2>This app uses your current location</h2>
       <p>
-        This app uses your location to provide better results. Please allow
-        location permission
-        <!-- end of contents inside modal -->
+        This app uses your location to provide better results. 
+        Please allow location permission.
       </p>
-      <!-- an IIFE is set to invoke the function on button call -->
+
+      <!-- Inline IIFE call for updating location -->
       <button class="ok-btn" onclick="(() => {
-            updateCurrentLocation()
-            closeModal(true)
-        })()">
+          updateCurrentLocation();
+          closeModal(true);
+      })()">
         Ok
       </button>
     </div>
   </div>
 
-  <!-- || STARTING -->
+  <!-- ========================= MAIN CONTAINER ========================= -->
   <div class="container">
-    <!--|| MAIN WEATHER REPORT BOX (RIGHT-SIDE) -->
+    
+    <!-- ========== WEATHER REPORT (Right Side Main Section) ========== -->
     <div class="weather-report">
+
       <!-- || NAVIGATION BAR -->
       <nav>
+        <!-- Location -->
         <div class="location">
           <h2 id="city">New Delhi</h2>
           <h3 id="country">
-            <i class="fa-sharp fa-solid fa-location-dot"></i>India
+            <i class="fa-sharp fa-solid fa-location-dot"></i> India
           </h3>
         </div>
+
+        <!-- Search Input -->
         <div class="search-area">
           <input type="text" id="search" placeholder="Enter city name..." spellcheck="false" />
           <button><i class="fa-solid fa-magnifying-glass"></i></button>
         </div>
+
+        <!-- Hamburger Menu (for sidebar/mobile) -->
         <div class="hamburger">
           <span class="bar"></span>
           <span class="bar"></span>
           <span class="bar"></span>
         </div>
 
-        <!-- Dark Mode button -->
+        <!-- Dark Mode Toggle -->
         <div class="dark-mode-toggle">
           <label class="switch">
             <input type="checkbox" id="darkModeToggle" />
@@ -70,30 +77,34 @@
         </div>
       </nav>
 
-      <!-- || CURRENT WEATHER STATUS BOX -->
+      <!-- || CURRENT WEATHER STATUS -->
       <div class="current-status">
-        <!-- BOX-1  MAIN WEATHER BOX-->
+        
+        <!-- Box-1: Main Weather -->
         <div class="weather weather-box1">
           <div class="weather-heading">
             <div class="weather-icon">
               <i class="fa-solid fa-cloud"></i>
             </div>
             <div class="weather-description">
-              <h3>weather</h3>
-              <h4>What's the weather.</h4>
+              <h3>Weather</h3>
+              <h4>What's the weather?</h4>
             </div>
           </div>
+
+          <!-- Temperature & Icon -->
           <div class="weather-temperature">
             <div class="temperature">
               <div class="temp">
                 <h2 id="temp">22</h2>
-                <img src="images/celsius.svg" alt="" />
+                <img src="images/celsius.svg" alt="Celsius Unit" />
               </div>
-              <img id="weather-icon" src="images/clear.png" alt="" />
+              <img id="weather-icon" src="images/clear.png" alt="Weather Icon" />
             </div>
             <p id="description">Partly Cloudy</p>
           </div>
 
+          <!-- Weather Details -->
           <div class="weather-details">
             <div class="box">
               <p>Pressure</p>
@@ -103,7 +114,6 @@
               <p>Visibility</p>
               <h3 id="visibility">4.3 km</h3>
             </div>
-
             <div class="box">
               <p>Humidity</p>
               <h3 id="humidity">87%</h3>
@@ -111,10 +121,11 @@
           </div>
         </div>
 
-        <!--|| Box-2 -->
-        <!-- Sunrise and Sunset-->
+        <!-- Box-2: Sunrise, Sunset & UV Index -->
         <div class="weather weather-box2">
           <div class="more-details">
+
+            <!-- Sunrise / Sunset -->
             <div class="more-detail-box">
               <p>Sunrise & Sunset</p>
               <div class="sunrise-sunset">
@@ -135,195 +146,59 @@
               </div>
             </div>
 
-            <!-- and UVI Index  -->
-
+            <!-- UV Index -->
             <div class="more-detail-box uvi-rays-area">
-              <img src="images/clear.png" alt="" />
+              <img src="images/clear.png" alt="UV Icon" />
               <div class="uvi-mesurement">
                 <div class="uvi-rays-status">
                   <div id="uvi-rays">20 UVI</div>
                   <div class="uvi-level">Moderate</div>
                 </div>
                 <div class="uvi-level-desc">
-                  <span class="uvi-level2">Moderate</span> risk of from UV
-                  rays
+                  <span class="uvi-level2">Moderate</span> risk from UV rays
                 </div>
               </div>
             </div>
+
           </div>
         </div>
       </div>
 
-      <!-- || 24 HOURS WEATHER UPDATES -->
+      <!-- || 24-HOUR HOURLY TEMPERATURE -->
       <div class="hourly-temperature">
         <div class="hourly-temperature-heading">
           <h2>
-            How's the <br />
-            temperature today at?
+            How's the <br /> temperature today at?
           </h2>
         </div>
+
+        <!-- Example Hourly Slots (to be dynamically filled) -->
         <div class="today-at">
           <div class="hours-box">
             <p class="hours">00:00 AM</p>
-            <img class="hourly-icon" src="images/clear.png" alt="" />
-            <p class="hours-temp">21.8 °c</p>
+            <img class="hourly-icon" src="images/clear.png" alt="Weather Icon" />
+            <p class="hours-temp">21.8 °C</p>
           </div>
-
-          <div class="hours-box">
-            <p class="hours">01:00 AM</p>
-            <img class="hourly-icon" src="images/clouds.png" alt="" />
-            <p class="hours-temp">21.8 °c</p>
-          </div>
-
-          <div class="hours-box">
-            <p class="hours">02:00 AM</p>
-            <img class="hourly-icon" src="images/clouds.png" alt="" />
-            <p class="hours-temp">21.8 °c</p>
-          </div>
-
-          <div class="hours-box">
-            <p class="hours">03:00 AM</p>
-            <img class="hourly-icon" src="images/clouds.png" alt="" />
-            <p class="hours-temp">21.8 °c</p>
-          </div>
-
-          <div class="hours-box">
-            <p class="hours">04:00 AM</p>
-            <img class="hourly-icon" src="images/clouds.png" alt="" />
-            <p class="hours-temp">21.8 °c</p>
-          </div>
-
-          <div class="hours-box">
-            <p class="hours">05:00 AM</p>
-            <img class="hourly-icon" src="images/clouds.png" alt="" />
-            <p class="hours-temp">21.8 °c</p>
-          </div>
-
-          <div class="hours-box">
-            <p class="hours">06:00 AM</p>
-            <img class="hourly-icon" src="images/clouds.png" alt="" />
-            <p class="hours-temp">21.8 °c</p>
-          </div>
-
-          <div class="hours-box">
-            <p class="hours">07:00 AM</p>
-            <img class="hourly-icon" src="images/clouds.png" alt="" />
-            <p class="hours-temp">21.8 °c</p>
-          </div>
-
-          <div class="hours-box">
-            <p class="hours">08:00 AM</p>
-            <img class="hourly-icon" src="images/clouds.png" alt="" />
-            <p class="hours-temp">21.8 °c</p>
-          </div>
-
-          <div class="hours-box">
-            <p class="hours">09:00 AM</p>
-            <img class="hourly-icon" src="images/clouds.png" alt="" />
-            <p class="hours-temp">21.8 °c</p>
-          </div>
-
-          <div class="hours-box">
-            <p class="hours">10:00 AM</p>
-            <img class="hourly-icon" src="images/clouds.png" alt="" />
-            <p class="hours-temp">21.8 °c</p>
-          </div>
-
-          <div class="hours-box">
-            <p class="hours">11:00 AM</p>
-            <img class="hourly-icon" src="images/clouds.png" alt="" />
-            <p class="hours-temp">21.8 °c</p>
-          </div>
-
-          <div class="hours-box">
-            <p class="hours">12:00 PM</p>
-            <img class="hourly-icon" src="images/clouds.png" alt="" />
-            <p class="hours-temp">21.8 °c</p>
-          </div>
-
-          <div class="hours-box">
-            <p class="hours">01:00 PM</p>
-            <img class="hourly-icon" src="images/clouds.png" alt="" />
-            <p class="hours-temp">21.8 °c</p>
-          </div>
-
-          <div class="hours-box">
-            <p class="hours">02:00 PM</p>
-            <img class="hourly-icon" src="images/clouds.png" alt="" />
-            <p class="hours-temp">21.8 °c</p>
-          </div>
-
-          <div class="hours-box">
-            <p class="hours">03:00 PM</p>
-            <img class="hourly-icon" src="images/clouds.png" alt="" />
-            <p class="hours-temp">21.8 °c</p>
-          </div>
-
-          <div class="hours-box">
-            <p class="hours">04:00 PM</p>
-            <img class="hourly-icon" src="images/clouds.png" alt="" />
-            <p class="hours-temp">21.8 °c</p>
-          </div>
-
-          <div class="hours-box">
-            <p class="hours">05:00 PM</p>
-            <img class="hourly-icon" src="images/clouds.png" alt="" />
-            <p class="hours-temp">21.8 °c</p>
-          </div>
-
-          <div class="hours-box">
-            <p class="hours">06:00 PM</p>
-            <img class="hourly-icon" src="images/clouds.png" alt="" />
-            <p class="hours-temp">21.8 °c</p>
-          </div>
-
-          <div class="hours-box">
-            <p class="hours">07:00 PM</p>
-            <img class="hourly-icon" src="images/clouds.png" alt="" />
-            <p class="hours-temp">21.8 °c</p>
-          </div>
-
-          <div class="hours-box">
-            <p class="hours">08:00 PM</p>
-            <img class="hourly-icon" src="images/clouds.png" alt="" />
-            <p class="hours-temp">21.8 °c</p>
-          </div>
-
-          <div class="hours-box">
-            <p class="hours">09:00 PM</p>
-            <img class="hourly-icon" src="images/clouds.png" alt="" />
-            <p class="hours-temp">21.8 °c</p>
-          </div>
-
-          <div class="hours-box">
-            <p class="hours">10:00 PM</p>
-            <img class="hourly-icon" src="images/clouds.png" alt="" />
-            <p class="hours-temp">21.8 °c</p>
-          </div>
-
-          <div class="hours-box">
-            <p class="hours">11:00 PM</p>
-            <img class="hourly-icon" src="images/clouds.png" alt="" />
-            <p class="hours-temp">21.8 °c</p>
-          </div>
+          <!-- Repeat for other hours -->
         </div>
       </div>
     </div>
 
-    <!-- || SLIDEBAR -->
+    <!-- ========== SLIDEBAR (Left Side) ========== -->
     <div class="slidebar">
-      <!-- Time and Date -->
+
+      <!-- Time & Date -->
       <div class="time-date">
         <h2 class="time">12:03:40 AM</h2>
         <p class="date">7 March 2023, Monday</p>
       </div>
 
+      <!-- Air Quality Index -->
       <div class="aqi-prediction-container">
-        <div class="aqi-prediction">
-        </div>
+        <div class="aqi-prediction"></div>
         <div class="aqi-prediction-content">
           <h2 class="aqi-title">Air Quality</h2>
-          <p>Main pollutant : PM 2.5</p>
+          <p>Main pollutant: PM 2.5</p>
           <div class="current-aqi">
             <div class="aqi-level">
               <div class="aqi">390</div>
@@ -334,95 +209,28 @@
         </div>
       </div>
 
-      <!-- || Next 6 Days Weather report -->
+      <!-- Next 3 Days Forecast -->
       <div class="weather-prediction">
         <h3>3 Days Forecast</h3>
-
         <div class="days-box">
           <div>
-            <img class="days-icon" src="images/clouds.png" alt="" />
+            <img class="days-icon" src="images/clouds.png" alt="Cloudy" />
             <div class="days">
               <div class="prediction-day">Sunday 10</div>
               <div class="prediction-desc">Cloudy</div>
             </div>
           </div>
-
-          <div class="days-temp">26°c <span>/</span> 19°c</div>
+          <div class="days-temp">26°C <span>/</span> 19°C</div>
         </div>
-
-        <div class="days-box">
-          <div>
-            <img class="days-icon" src="images/clouds.png" alt="" />
-            <div class="days">
-              <div class="prediction-day">Sunday 10</div>
-              <div class="prediction-desc">Cloudy</div>
-            </div>
-          </div>
-
-          <div class="days-temp">26°c <span>/</span> 19°c</div>
-        </div>
-
-        <div class="days-box">
-          <div>
-            <img class="days-icon" src="images/clouds.png" alt="" />
-            <div class="days">
-              <div class="prediction-day">Sunday 10</div>
-              <div class="prediction-desc">Cloudy</div>
-            </div>
-          </div>
-
-          <div class="days-temp">26°c <span>/</span> 19°c</div>
-        </div>
-
-        <!-- <div class="days-box">
-                    <div>
-                        <img class="days-icon" src="images/clouds.png" alt="">
-                        <div class="days">
-                            <div class="prediction-day">Sunday 10</div>
-                            <div class="prediction-desc">Cloudy</div>
-
-                        </div>
-                    </div>
-
-                    <div class="days-temp">26°c <span>/</span> 19°c</div>
-                </div>
-
-                <div class="days-box">
-                    <div>
-                        <img class="days-icon" src="images/clouds.png" alt="">
-                        <div class="days">
-                            <div class="prediction-day">Sunday 10</div>
-                            <div class="prediction-desc">Cloudy</div>
-
-                        </div>
-                    </div>
-
-                    <div class="days-temp">26°c <span>/</span> 19°c</div>
-                </div>
-
-                <div class="days-box">
-                    <div>
-                        <img class="days-icon" src="images/clouds.png" alt="">
-                        <div class="days">
-                            <div class="prediction-day">Sunday 10</div>
-                            <div class="prediction-desc">Cloudy</div>
-
-                        </div>
-                    </div>
-
-                    <div class="days-temp">26°c <span>/</span> 19°c</div>
-                </div> -->
+        <!-- Repeat days -->
       </div>
     </div>
   </div>
 
-  <!--|| FOOTER -->
-  <!-- <footer>
-        <div class="copyright">Copyrights <span style="font-size: 16px;">&copy;</span> <span id="copyright">2023</span></div>
-    </footer> -->
-
+  <!-- ========================= FOOTER ========================= -->
   <div class="s-footer">
     <footer class="footer">
+      <!-- Decorative Waves -->
       <div class="waves">
         <div class="wave" id="wave1"></div>
         <div class="wave" id="wave2"></div>
@@ -430,44 +238,33 @@
         <div class="wave" id="wave4"></div>
       </div>
 
+      <!-- Social Links -->
       <ul class="social-icon">
-        <li class="social-icon__item">
-          <a class="social-icon__link" href="https://www.facebook.com/">
-            <ion-icon name="logo-facebook"></ion-icon>
-          </a>
-        </li>
-        <li class="social-icon__item">
-          <a class="social-icon__link" href="https://github.com/devjainofficial/">
-            <ion-icon name="logo-github"></ion-icon>
-          </a>
-        </li>
-        <li class="social-icon__item">
-          <a class="social-icon__link" href="https://www.linkedin.com/in/devjainofficial/">
-            <ion-icon name="logo-linkedin"></ion-icon>
-          </a>
-        </li>
-        <li class="social-icon__item">
-          <a class="social-icon__link" href="https://www.instagram.com/devjain_official">
-            <ion-icon name="logo-instagram"></ion-icon>
-          </a>
-        </li>
+        <li><a class="social-icon__link" href="https://www.facebook.com/"><ion-icon name="logo-facebook"></ion-icon></a></li>
+        <li><a class="social-icon__link" href="https://github.com/devjainofficial/"><ion-icon name="logo-github"></ion-icon></a></li>
+        <li><a class="social-icon__link" href="https://www.linkedin.com/in/devjainofficial/"><ion-icon name="logo-linkedin"></ion-icon></a></li>
+        <li><a class="social-icon__link" href="https://www.instagram.com/devjain_official"><ion-icon name="logo-instagram"></ion-icon></a></li>
       </ul>
+
+      <!-- Footer Info -->
       <h3>Weather App</h3>
       <p>Copyrights &copy; 2024</p>
     </footer>
   </div>
 
+  <!-- ========================= SCRIPTS ========================= -->
   <script src="js/main.js"></script>
   <script>
-    // We don't need this script if the location is already located.
+    // Load modal.js only if city not stored in localStorage
     if (!localStorage.getItem('city')) {
       let script = document.createElement("script");
       script.src = 'js/modal.js';
       document.head.appendChild(script);
     }
   </script>
+
+  <!-- Ionicons -->
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
-
 </html>
