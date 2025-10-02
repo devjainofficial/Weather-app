@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Global Weather App</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,700&family=Nunito:wght@400;700&family=Open+Sans:ital,wght@1,300&family=Poppins&family=Roboto&family=Source+Sans+Pro:ital,wght@0,400;0,700;1,400&display=swap');
+
+        /* || RESET STYLES 
+            - Ensures consistent padding, margin, and box model across elements.
+            - Sets a default font for the entire app.
+        */
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* || ROOT VARIABLES 
+            - Defines primary color scheme and common sizes for consistency.
+            - Modify these to update the overall theme.
+        */
+        :root {
+
+            /* COLORS */
+            --PRIMARY-TEXT-COLOR: #0a2348;
+            --SECONDARY-TEXT-COLOR: #fff;
+            --PRIMARY-BG-COLOR: #0a2348;
+            --SECONDARY-BG-COLOR: #f3f7f7;
+            --LIGHT-BG-COLOR: #fff;
+
+            /* TEXT */
+            --SMALL-TEXT: 14px;
+            --LETTER-SPACING: 0.8px;
+            --LIGHT-TEXT: #f4f4f4;
+
+            /* STANDERED SIZE AND PADDINGS */
+            --STANDERED-PADDING: 30px;
+            --STANDERED-RADIUS: 20px;
+        }
+
+        body {
+            position: relative;
+            background-color: var(--LIGHT-BG-COLOR);
+            color: var(--PRIMARY-TEXT-COLOR);
+            line-height: 1.6;
+        }
+
+        /* || STARTING */
+        /* || MAIN CONTAINER
+            - Sets the layout for the main content container, ensuring it occupies full viewport height.
+            - Centers content horizontally with auto margins.
+        */
+        .container {
+            position: relative;
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            color: var(--PRIMARY-TEXT-COLOR);
+            margin: 0 auto;
+        }
+
+        /* || NAVIGATION BAR 
+            - Aligns navigation links and logo with flexible spacing.
+            - Uses primary colors to keep consistency with branding.
+        */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--PRIMARY-TEXT-COLOR);
+            padding: var(--STANDERED-PADDING);
+            background-color: var(--LIGHT-BG-COLOR);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo i {
+            font-size: 2.5rem;
+            color: #FFAE19;
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .back-home .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: var(--PRIMARY-BG-COLOR);
+            color: var(--SECONDARY-TEXT-COLOR);
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .back-home .btn:hover {
+            background-color: #155ab6;
+            transform: translateY(-2px);
+        }
+
+        /* || ABOUT US CONTENT */
+        .about-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: var(--STANDERED-PADDING);
+        }
+
+        .about-header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 20px;
+        }
+
+        .about-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: var(--PRIMARY-BG-COLOR);
+            position: relative;
+            display: inline-block;
+        }
+
+        .about-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: #FFAE19;
+            border-radius: 2px;
+        }
+
+        .about-header p {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto;
+            color: var(--PRIMARY-TEXT-COLOR);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .about-text {
+            background-color: var(--SECONDARY-BG-COLOR);
+            border-radius: var(--STANDERED-RADIUS);
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--PRIMARY-BG-COLOR);
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            font-size: 1rem;
+        }
+
+        .about-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .weather-illustration {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(to right bottom, #4EA6E5, #b7f1f3);
+            border-radius: var(--STANDERED-RADIUS);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .weather-icon {
+            font-size: 8rem;
+            color: var(--PRIMARY-BG-COLOR);
+            animation: float 5s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* || FEATURES SECTION */
+        .features-section {
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 40px;
+            color: var(--PRIMARY-BG-COLOR);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: #FFAE19;
+            border-radius: 2px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background-color: var(--SECONDARY-BG-COLOR);
+            border-radius: var(--STANDERED-RADIUS);
+            padding: 30px;
+            text-align: center;
+            transition: 0.3s;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            color: #FFAE19;
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--PRIMARY-BG-COLOR);
+        }
+
+        /* || TEAM SECTION */
+        .team-section {
+            margin-bottom: 60px;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .team-card {
+            background-color: var(--SECONDARY-BG-COLOR);
+            border-radius: var(--STANDERED-RADIUS);
+            padding: 30px;
+            text-align: center;
+            transition: 0.3s;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .team-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .team-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            background: linear-gradient(135deg, var(--PRIMARY-BG-COLOR), #4EA6E5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2.5rem;
+            color: white;
+        }
+
+        .team-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: var(--PRIMARY-BG-COLOR);
+        }
+
+        .team-card p {
+            color: var(--PRIMARY-TEXT-COLOR);
+            margin-bottom: 15px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--PRIMARY-BG-COLOR);
+            color: white;
+            transition: 0.3s;
+        }
+
+        .social-links a:hover {
+            background-color: #FFAE19;
+            transform: translateY(-3px);
+        }
+
+        /* || DARK MODE TOGGLE 
+            - Toggle switch for dark mode with smooth transition and rounded elements.
+            - Changes background and text colors for dark mode.
+        */
+        .dark-mode-toggle {
+            display: flex;
+            align-items: center;
+            margin-left: 20px;
+        }
+
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+            margin-right: 10px;
+        }
+
+        .switch input {
+            display: none;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: 0.4s;
+            border-radius: 34px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: 0.4s;
+            border-radius: 50%;
+        }
+
+        /* Had initialized the dark mode here */
+        body.dark-mode {
+            /* Update background and text colors for dark mode */
+            --PRIMARY-TEXT-COLOR: #ffffff;
+            --SECONDARY-TEXT-COLOR: #0c0c0b;
+            --PRIMARY-BG-COLOR: #f09c1d;
+            --SECONDARY-BG-COLOR: #2b2b2b;
+            --LIGHT-BG-COLOR: #333333;
+
+            --SMALL-TEXT: 14px;
+            --LETTER-SPACING: 0.8px;
+            --LIGHT-TEXT: #f4f4f4;
+        }
+
+        .dark-mode .slider {
+            background-color: #ffffff;
+            /* Light background color for the switch */
+        }
+
+        .dark-mode .slider:before {
+            background-color: #121212;
+            color: whitesmoke;
+            /* Dark color for the slider ball */
+        }
+
+        input:checked + .slider {
+            background-color: #f7f7f7;
+            color: white;
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+
+        /* || FOOTER */
+        .s-footer {
+            display: flex;
+            background: white;
+            justify-content: flex-end;
+            align-items: flex-end;
+            margin-top: 70px;
+        }
+
+        .footer {
+            position: relative;
+            width: 100%;
+            background: #FFAE19;
+            min-height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .social-icon {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 10px 0;
+            flex-wrap: wrap;
+        }
+
+        .social-icon__item {
+            list-style: none;
+        }
+
+        .social-icon__link {
+            font-size: 2rem;
+            color: #fff;
+            margin: 0 30px;
+            display: inline-block;
+            transition: 0.5s;
+        }
+
+        .social-icon__link:hover {
+            transform: translateY(-10px);
+        }
+
+        .footer p {
+            color: #fff;
+            margin: 15px 0 10px 0;
+            font-size: 1rem;
+            font-weight: 300;
+        }
+
+        /* Background Wave Effect 
+            - Positions a wave image above the footer for visual interest.
+        */
+        .wave {
+            position: absolute;
+            top: -100px;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: url("https://cdn.pixabay.com/photo/2013/07/12/12/36/wave-146464_1280.png");
+            background-size: 1000px 100px;
+        }
+
+        /* Individual Waves with Layering and Opacity
+            - Each wave uses different opacity and z-index for layering.
+            - Animations create a moving wave effect.
+        */
+        .wave#wave1 {
+            z-index: 1000;
+            opacity: 0.3;
+            bottom: 0;
+            animation: animateWaves 4s linear infinite;
+        }
+
+        .wave#wave2 {
+            z-index: 999;
+            opacity: 0.6;
+            bottom: 10px;
+            animation: animate 4s linear infinite !important;
+        }
+
+        .wave#wave3 {
+            z-index: 1000;
+            opacity: 0.3;
+            bottom: 15px;
+            animation: animateWaves 3s linear infinite;
+        }
+
+        .wave#wave4 {
+            z-index: 999;
+            opacity: 0.5;
+            bottom: 20px;
+            animation: animate 3s linear infinite;
+        }
+
+        /* || WAVE ANIMATION 
+            - Moves wave background horizontally for a flowing effect.
+        */
+        @keyframes animateWaves {
+            0% {
+                background-position-x: 1000px;
+            }
+
+            100% {
+                background-positon-x: 0px;
+            }
+        }
+
+        @keyframes animate {
+            0% {
+                background-position-x: -1000px;
+            }
+
+            100% {
+                background-positon-x: 0px;
+            }
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+            
+            nav {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .logo h1 {
+                font-size: 1.5rem;
+            }
+            
+            .about-header h2, .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <div class="logo">
+                <i class="fas fa-cloud-sun"></i>
+                <h1>Global Weather App</h1>
+            </div>
+            <div class="nav-links">
+                <div class="back-home">
+                    <a href="index.html" class="btn">
+                        <i class="fas fa-arrow-left"></i>
+                        Back to Home
+                    </a>
+                </div>
+                <div class="dark-mode-toggle">
+                    <label class="switch">
+                        <input type="checkbox" id="darkModeToggle">
+                        <span class="slider"></span>
+                    </label>
+                    <span id="darkModeLabel">Dark Mode</span>
+                </div>
+            </div>
+        </nav>
+
+        <div class="about-container">
+            <div class="about-header">
+                <h2>About Global Weather App</h2>
+                <p>Your trusted companion for accurate and up-to-date weather information from around the world</p>
+            </div>
+
+            <section class="about-content">
+                <div class="about-text">
+                    <h3>Our Mission</h3>
+                    <p>Welcome to the Global Weather App, your trusted companion for accurate and up-to-date weather information from around the world. Our mission is to provide users with a seamless and intuitive weather experience, delivering real-time data in a beautiful and accessible interface.</p>
+                    <p>Founded in 2023, our team of passionate developers and meteorology enthusiasts set out to create a weather application that goes beyond basic forecasts. We believe that weather information should be easily accessible, visually appealing, and packed with useful details to help you plan your day effectively.</p>
+                    <p>Whether you're planning a trip, scheduling outdoor activities, or just curious about the weather in different parts of the world, our app provides comprehensive weather data including temperature, humidity, wind speed, and atmospheric conditions.</p>
+                </div>
+                <div class="about-image">
+                    <div class="weather-illustration">
+                        <i class="fas fa-sun weather-icon"></i>
+                    </div>
+                </div>
+            </section>
+
+            <section class="features-section">
+                <h2 class="section-title">Why Choose Our App</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <i class="fas fa-bolt feature-icon"></i>
+                        <h3>Real-time Data</h3>
+                        <p>Get up-to-the-minute weather information with our advanced API integration.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-mobile-alt feature-icon"></i>
+                        <h3>Responsive Design</h3>
+                        <p>Enjoy a seamless experience across all your devices - desktop, tablet, and mobile.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-palette feature-icon"></i>
+                        <h3>Dark/Light Mode</h3>
+                        <p>Toggle between themes to suit your preference and reduce eye strain.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-globe-americas feature-icon"></i>
+                        <h3>Global Coverage</h3>
+                        <p>Access weather information for any location worldwide with our extensive coverage.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="team-section">
+                <h2 class="section-title">Meet Our Team</h2>
+                <div class="team-grid">
+                    <div class="team-card">
+                        <div class="team-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <h3>Alex Johnson</h3>
+                        <p>Lead Developer</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                    <div class="team-card">
+                        <div class="team-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <h3>Sarah Williams</h3>
+                        <p>UI/UX Designer</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fab fa-dribbble"></i></a>
+                        </div>
+                    </div>
+                    <div class="team-card">
+                        <div class="team-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <h3>Michael Chen</h3>
+                        <p>Data Scientist</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div class="s-footer">
+            <div class="footer">
+                <div class="wave" id="wave1"></div>
+                <div class="wave" id="wave2"></div>
+                <div class="wave" id="wave3"></div>
+                <div class="wave" id="wave4"></div>
+                <ul class="social-icon">
+                    <li class="social-icon__item">
+                        <a class="social-icon__link" href="#">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                    </li>
+                    <li class="social-icon__item">
+                        <a class="social-icon__link" href="#">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </li>
+                    <li class="social-icon__item">
+                        <a class="social-icon__link" href="#">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                    </li>
+                    <li class="social-icon__item">
+                        <a class="social-icon__link" href="#">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </li>
+                </ul>
+                <p>© 2025 Global Weather App | All Rights Reserved</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Dark Mode Toggle Functionality
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const darkModeLabel = document.getElementById('darkModeLabel');
+        const body = document.body;
+
+        // Check for saved theme preference or default to light
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        if (currentTheme === 'dark') {
+            body.classList.add('dark-mode');
+            darkModeToggle.checked = true;
+            darkModeLabel.textContent = 'Light Mode';
+        }
+
+        darkModeToggle.addEventListener('change', () => {
+            body.classList.toggle('dark-mode');
+            
+            if (body.classList.contains('dark-mode')) {
+                localStorage.setItem('theme', 'dark');
+                darkModeLabel.textContent = 'Light Mode';
+            } else {
+                localStorage.setItem('theme', 'light');
+                darkModeLabel.textContent = 'Dark Mode';
+            }
+        });
+
+        // Weather icon animation
+        const weatherIcon = document.querySelector('.weather-icon');
+        const icons = ['fa-sun', 'fa-cloud', 'fa-cloud-rain', 'fa-bolt', 'fa-snowflake'];
+        let currentIconIndex = 0;
+
+        setInterval(() => {
+            weatherIcon.classList.remove(icons[currentIconIndex]);
+            currentIconIndex = (currentIconIndex + 1) % icons.length;
+            weatherIcon.classList.add(icons[currentIconIndex]);
+        }, 3000);
+
+        // Add animation to feature cards on scroll
+        const featureCards = document.querySelectorAll('.feature-card, .team-card');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        featureCards.forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
