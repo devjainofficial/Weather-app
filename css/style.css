@@ -549,10 +549,6 @@ nav {
     font-weight: 900;
 }
 
-.consern-level {
-    /* margin-top: 10px; */
-}
-
 .aqi-level {
     display: flex;
     gap: 20px;
@@ -1121,4 +1117,21 @@ input:checked+.slider {
 
 input:checked+.slider:before {
     transform: translateX(26px);
+}
+.nav-links {
+  margin-left: 20px;
+}
+
+.nav-links .about-btn {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  padding: 5px 12px;
+  border-radius: 20px;
+  background-color: #0a2348;
+  transition: 0.3s;
+}
+
+.nav-links .about-btn:hover {
+  background-color: #155ab6;
 }
