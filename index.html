@@ -453,7 +453,7 @@
         </li>
       </ul>
       <h3>Weather App</h3>
-      <p>Copyrights &copy; 2024</p>
+      <p>Copyrights &copy; <span id="year"></span></p>
     </footer>
   </div>
 
@@ -465,6 +465,7 @@
       script.src = 'js/modal.js';
       document.head.appendChild(script);
     }
+    document.getElementById('year').textContent = new Date().getFullYear();
   </script>
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
