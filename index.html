@@ -13,22 +13,13 @@
 </head>
 
 <body>
-  <!-- || LOCATION MODAL -->
-  <!-- The Modal -->
   <div id="generic_modal" class="modal" data-open="open" data-closable="no">
-    <!-- Modal content -->
     <div class="modal-content dynamic-bg">
-      <!-- close button -->
-      <!-- <span class="close">&times;</span> -->
-
-      <!-- contents inside modal -->
       <h2>This app uses your current location</h2>
       <p>
         This app uses your location to provide better results. Please allow
         location permission
-        <!-- end of contents inside modal -->
-      </p>
-      <!-- an IIFE is set to invoke the function on button call -->
+        </p>
       <button class="ok-btn" onclick="(() => {
             updateCurrentLocation()
             closeModal(true)
@@ -38,14 +29,14 @@
     </div>
   </div>
 
-  <!-- || STARTING -->
   <div class="container">
-    <!--|| MAIN WEATHER REPORT BOX (RIGHT-SIDE) -->
     <div class="weather-report">
-      <!-- || NAVIGATION BAR -->
       <nav>
         <div class="location">
-          <h2 id="city">New Delhi</h2>
+          <div class="city-header">
+            <h2 id="city">New Delhi</h2>
+            <i id="bookmark-icon" class="fa-regular fa-star"></i>
+            </div>
           <h3 id="country">
             <i class="fa-sharp fa-solid fa-location-dot"></i>India
           </h3>
@@ -60,7 +51,6 @@
           <span class="bar"></span>
         </div>
 
-        <!-- Dark Mode button -->
         <div class="dark-mode-toggle">
           <label class="switch">
             <input type="checkbox" id="darkModeToggle" />
@@ -70,9 +60,7 @@
         </div>
       </nav>
 
-      <!-- || CURRENT WEATHER STATUS BOX -->
       <div class="current-status">
-        <!-- BOX-1  MAIN WEATHER BOX-->
         <div class="weather weather-box1">
           <div class="weather-heading">
             <div class="weather-icon">
@@ -111,8 +99,6 @@
           </div>
         </div>
 
-        <!--|| Box-2 -->
-        <!-- Sunrise and Sunset-->
         <div class="weather weather-box2">
           <div class="more-details">
             <div class="more-detail-box">
@@ -135,8 +121,6 @@
               </div>
             </div>
 
-            <!-- and UVI Index  -->
-
             <div class="more-detail-box uvi-rays-area">
               <img src="images/clear.png" alt="" />
               <div class="uvi-mesurement">
@@ -154,7 +138,6 @@
         </div>
       </div>
 
-      <!-- || 24 HOURS WEATHER UPDATES -->
       <div class="hourly-temperature">
         <div class="hourly-temperature-heading">
           <h2>
@@ -310,9 +293,7 @@
       </div>
     </div>
 
-    <!-- || SLIDEBAR -->
     <div class="slidebar">
-      <!-- Time and Date -->
       <div class="time-date">
         <h2 class="time">12:03:40 AM</h2>
         <p class="date">7 March 2023, Monday</p>
@@ -334,7 +315,15 @@
         </div>
       </div>
 
-      <!-- || Next 6 Days Weather report -->
+      <div class="bookmarked-cities">
+        <h3>Bookmarked Cities 📌</h3>
+        <div id="bookmarked-cities-list">
+          <div class="bookmarked-city-item" data-city-name="New York">
+              <span class="city-name">New York</span>
+              <i class="fa-solid fa-xmark remove-bookmark-icon"></i>
+          </div>
+        </div>
+      </div>
       <div class="weather-prediction">
         <h3>3 Days Forecast</h3>
 
@@ -374,52 +363,9 @@
           <div class="days-temp">26°c <span>/</span> 19°c</div>
         </div>
 
-        <!-- <div class="days-box">
-                    <div>
-                        <img class="days-icon" src="images/clouds.png" alt="">
-                        <div class="days">
-                            <div class="prediction-day">Sunday 10</div>
-                            <div class="prediction-desc">Cloudy</div>
-
-                        </div>
-                    </div>
-
-                    <div class="days-temp">26°c <span>/</span> 19°c</div>
-                </div>
-
-                <div class="days-box">
-                    <div>
-                        <img class="days-icon" src="images/clouds.png" alt="">
-                        <div class="days">
-                            <div class="prediction-day">Sunday 10</div>
-                            <div class="prediction-desc">Cloudy</div>
-
-                        </div>
-                    </div>
-
-                    <div class="days-temp">26°c <span>/</span> 19°c</div>
-                </div>
-
-                <div class="days-box">
-                    <div>
-                        <img class="days-icon" src="images/clouds.png" alt="">
-                        <div class="days">
-                            <div class="prediction-day">Sunday 10</div>
-                            <div class="prediction-desc">Cloudy</div>
-
-                        </div>
-                    </div>
-
-                    <div class="days-temp">26°c <span>/</span> 19°c</div>
-                </div> -->
-      </div>
+        </div>
     </div>
   </div>
-
-  <!--|| FOOTER -->
-  <!-- <footer>
-        <div class="copyright">Copyrights <span style="font-size: 16px;">&copy;</span> <span id="copyright">2023</span></div>
-    </footer> -->
 
   <div class="s-footer">
     <footer class="footer">

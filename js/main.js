@@ -32,7 +32,10 @@ const elements = {
   hamburger: document.querySelector('.hamburger'),
   slidebar: document.querySelector('.slidebar'),
   darkModeToggle: document.getElementById('darkModeToggle'),
-  darkModeText: document.getElementById('darkModeText')
+  darkModeText: document.getElementById('darkModeText'),
+  // New Bookmark Elements
+  bookmarkIcon: document.getElementById('bookmark-icon'),
+  bookmarkedCitiesList: document.getElementById('bookmarked-cities-list'),
 };
 
 const monthName = [
@@ -44,13 +47,103 @@ const weekDays = [
   'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'
 ];
 
-// Main weather functionality
+let currentCityName = ''; // Global variable to hold the current city's name
+
+// --- Bookmark Management Functions ---
+
+/**
+ * Loads bookmarked cities from localStorage.
+ * @returns {string[]} An array of bookmarked city names.
+ */
+function getBookmarkedCities() {
+  const bookmarks = localStorage.getItem('bookmarkedCities');
+  return bookmarks ? JSON.parse(bookmarks) : [];
+}
+
+/**
+ * Saves the array of bookmarked cities to localStorage.
+ * @param {string[]} bookmarks - The array of city names to save.
+ */
+function saveBookmarkedCities(bookmarks) {
+  localStorage.setItem('bookmarkedCities', JSON.stringify(bookmarks));
+  renderBookmarkedCities(); // Re-render the list after saving
+}
+
+/**
+ * Toggles a city's bookmark status.
+ * @param {string} city - The city name to add or remove.
+ */
+function toggleBookmark(city) {
+  const bookmarks = getBookmarkedCities();
+  const index = bookmarks.findIndex(c => c.toLowerCase() === city.toLowerCase());
+
+  if (index === -1) {
+    // City not bookmarked, so add it
+    bookmarks.push(city);
+    elements.bookmarkIcon.classList.add('fa-solid', 'bookmarked');
+    elements.bookmarkIcon.classList.remove('fa-regular');
+  } else {
+    // City is bookmarked, so remove it
+    bookmarks.splice(index, 1);
+    elements.bookmarkIcon.classList.add('fa-regular');
+    elements.bookmarkIcon.classList.remove('fa-solid', 'bookmarked');
+  }
+
+  saveBookmarkedCities(bookmarks);
+}
+
+/**
+ * Renders the list of bookmarked cities in the slidebar.
+ */
+function renderBookmarkedCities() {
+  const bookmarks = getBookmarkedCities();
+  elements.bookmarkedCitiesList.innerHTML = ''; // Clear existing list
+
+  if (bookmarks.length === 0) {
+    elements.bookmarkedCitiesList.innerHTML = '<p style="font-size:14px; color: #7A7F8E; text-align: center;">No cities bookmarked yet.</p>';
+    return;
+  }
+
+  bookmarks.forEach(city => {
+    const item = document.createElement('div');
+    item.className = 'bookmarked-city-item';
+    item.setAttribute('data-city-name', city);
+    item.innerHTML = `
+      <span class="city-name">${city}</span>
+      <i class="fa-solid fa-xmark remove-bookmark-icon" data-city-name="${city}"></i>
+    `;
+    elements.bookmarkedCitiesList.appendChild(item);
+  });
+}
+
+/**
+ * Updates the bookmark icon's appearance based on the current city.
+ * @param {string} city - The current city name.
+ */
+function updateBookmarkIcon(city) {
+  const bookmarks = getBookmarkedCities();
+  const isBookmarked = bookmarks.some(c => c.toLowerCase() === city.toLowerCase());
+
+  // Toggle classes for the star icon
+  if (isBookmarked) {
+    elements.bookmarkIcon.classList.add('fa-solid', 'bookmarked');
+    elements.bookmarkIcon.classList.remove('fa-regular');
+  } else {
+    elements.bookmarkIcon.classList.add('fa-regular');
+    elements.bookmarkIcon.classList.remove('fa-solid', 'bookmarked');
+  }
+}
+
+// --- Main weather functionality ---
+
 async function getWeatherReport(searchCity) {
   try {
     const response = await fetch(`${API_BASE_URL}?key=${API_KEY}&q=${searchCity}&days=7&aqi=yes&alerts=no`);
     const data = await response.json();
+    currentCityName = data.location.name; // Set the global city name
     updateWeatherUI(data);
-    localStorage.setItem('city',searchCity);
+    localStorage.setItem('city', searchCity);
+    updateBookmarkIcon(currentCityName); // Update icon status after fetching new city
   } catch (error) {
     console.error('Error fetching weather data:', error);
     // TODO: Implement user-friendly error handling
@@ -173,19 +266,55 @@ function updateTime(timezone) {
 }
 
 
-// Event listeners
+// --- Event Listeners and Initialization ---
+
+// Hamburger menu toggle
 elements.hamburger.addEventListener('click', () => {
   elements.hamburger.classList.toggle('active');
   elements.slidebar.classList.toggle('active');
 });
 
+// Search button click
 document.querySelector('.search-area button').addEventListener('click', () => {
-  getWeatherReport(elements.searchCity.value);
+  if (elements.searchCity.value) {
+    getWeatherReport(elements.searchCity.value);
+  }
 });
 
+// Search on Enter key press
 elements.searchCity.addEventListener('keydown', (event) => {
-  if (event.key === 'Enter') {
+  if (event.key === 'Enter' && elements.searchCity.value) {
     getWeatherReport(elements.searchCity.value);
+  }
+});
+
+// Bookmark icon click
+elements.bookmarkIcon.addEventListener('click', () => {
+  if (currentCityName) {
+    toggleBookmark(currentCityName);
+  }
+});
+
+// Bookmarked cities list events (Delegation)
+elements.bookmarkedCitiesList.addEventListener('click', (event) => {
+  const target = event.target;
+  const item = target.closest('.bookmarked-city-item');
+
+  if (!item) return;
+
+  const cityName = item.getAttribute('data-city-name');
+
+  if (target.classList.contains('remove-bookmark-icon')) {
+    // Remove functionality (clicked on the 'X')
+    toggleBookmark(cityName);
+  } else {
+    // View functionality (clicked on the city name)
+    getWeatherReport(cityName);
+    // Optionally close sidebar on mobile after selection
+    if (elements.hamburger.classList.contains('active')) {
+      elements.hamburger.classList.remove('active');
+      elements.slidebar.classList.remove('active');
+    }
   }
 });
 
@@ -210,5 +339,8 @@ if (localStorage.getItem('dark-mode') === 'enabled') {
   elements.darkModeText.textContent = 'Light Mode';
 }
 
-// Initialize weather app with default city
+// Initialize weather app
+// 1. Render bookmarks list
+renderBookmarkedCities();
+// 2. Load weather for default/last city
 getWeatherReport(localStorage.getItem("city") ?? 'New Delhi');
