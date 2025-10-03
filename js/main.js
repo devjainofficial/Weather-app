@@ -240,12 +240,11 @@ function updateDailyForecast(data) {
 }
 
 function updateTime(timezone) {
-  clearInterval(intervalId); // To prevent displaying multi times at the same time.
+  clearInterval(intervalId); 
   const updateClock = () => {
     const now = new Date();
     const options = { timeZone: timezone, hour: '2-digit', minute: '2-digit', second: '2-digit' };
 
-    // Check if timezone is valid
     if (timezone) {
       const localTime = now.toLocaleTimeString('en-US', options);
       elements.currentTime.textContent = localTime;
@@ -258,15 +257,12 @@ function updateTime(timezone) {
   intervalId = setInterval(updateClock, 1000);
 
   // Setting the date based on timezone
-  const today = new Date(); // Get the current date in UTC
+  const today = new Date(); 
   if (timezone) {
     today.toLocaleString('en-US', { timeZone: timezone });
   }
   elements.currentDate.textContent = `${today.getDate()} ${monthName[today.getMonth()]} ${today.getFullYear()}, ${weekDays[today.getDay()]}`;
 }
-
-
-// --- Event Listeners and Initialization ---
 
 // Hamburger menu toggle
 elements.hamburger.addEventListener('click', () => {
@@ -281,21 +277,21 @@ document.querySelector('.search-area button').addEventListener('click', () => {
   }
 });
 
-// Search on Enter key press
+// When Enter key/ Search button pressed
 elements.searchCity.addEventListener('keydown', (event) => {
   if (event.key === 'Enter' && elements.searchCity.value) {
     getWeatherReport(elements.searchCity.value);
   }
 });
 
-// Bookmark icon click
+// Bookmarking icon click
 elements.bookmarkIcon.addEventListener('click', () => {
   if (currentCityName) {
     toggleBookmark(currentCityName);
   }
 });
 
-// Bookmarked cities list events (Delegation)
+// Bookmarked cities list events 
 elements.bookmarkedCitiesList.addEventListener('click', (event) => {
   const target = event.target;
   const item = target.closest('.bookmarked-city-item');
@@ -305,10 +301,10 @@ elements.bookmarkedCitiesList.addEventListener('click', (event) => {
   const cityName = item.getAttribute('data-city-name');
 
   if (target.classList.contains('remove-bookmark-icon')) {
-    // Remove functionality (clicked on the 'X')
+    // Remove functionality 
     toggleBookmark(cityName);
   } else {
-    // View functionality (clicked on the city name)
+    // View functionality 
     getWeatherReport(cityName);
     // Optionally close sidebar on mobile after selection
     if (elements.hamburger.classList.contains('active')) {
@@ -332,15 +328,14 @@ elements.darkModeToggle.addEventListener('change', function () {
   localStorage.setItem('dark-mode', isDarkMode ? 'enabled' : null);
 });
 
-// Initialize dark mode from local storage
+// Initializing dark mode from local storage
 if (localStorage.getItem('dark-mode') === 'enabled') {
   toggleDarkMode();
   elements.darkModeToggle.checked = true;
   elements.darkModeText.textContent = 'Light Mode';
 }
 
-// Initialize weather app
-// 1. Render bookmarks list
+// Initializing weather app
 renderBookmarkedCities();
-// 2. Load weather for default/last city
+
 getWeatherReport(localStorage.getItem("city") ?? 'New Delhi');
