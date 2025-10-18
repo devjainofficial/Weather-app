@@ -1,42 +1,37 @@
-Feature Name: Weekly Forecast Summary
+Feature Name: Weekly (7-day) Forecast Summary
 
 Problem:
-The current Weather App displays only the daily weather for a selected city. 
-Users have no way to quickly view the full 7-day forecast, which makes planning activities for the week harder. 
-Currently, users need to check the app every day to get the forecast, which is not convenient.
+The current Weather App displays only a 3-day weather forecast for a selected city. 
+Users cannot quickly view the full week’s weather, which makes planning activities for the entire week less convenient.
 
 Proposed Solution:
-Add a weekly forecast summary section below the current daily weather display. 
-This section will show the next 7 days in a simple card or table format. Each day’s card will display:
+Add a weekly forecast summary section that displays the next 7 days in a simple card or table format. 
+Each day’s card will display:
 - Day of the week
 - Minimum and maximum temperature
 - Weather condition icon (sun, cloud, rain, etc.)
 - Optional precipitation chance or humidity
 
 Implementation Details:
-- **HTML**: Create a container section for the 7-day cards.
-- **CSS**: Use flexbox or grid to layout the cards responsively for mobile and desktop.
-- **JavaScript**: 
-    - Use the existing weather API to fetch 7-day forecast data (if API supports 7-day forecast). 
-    - Dynamically generate the 7-day cards with JS.
-    - Format dates using `Date` object to show the day name.
-- **Responsiveness**: Ensure the cards display nicely on mobile, tablet, and desktop screens.
-- **Optional Enhancements**: Highlight the current day, show tooltip with extra info on hover.
+- HTML: Create a container section for the 7-day cards.
+- CSS: Use Flexbox or Grid to layout the cards responsively for mobile and desktop.
+- JavaScript (ES6+): 
+    - Use the existing weather API to fetch 7-day forecast data (if supported).
+    - Dynamically generate the 7-day cards.
+    - Format dates using the Date object to display day names.
+- Optional Enhancements: Highlight the current day, show tooltip with extra info, or use weather icons library for better visualization.
 
 Alternatives Considered:
-- Using detailed charts (like line graphs or bar charts) to show weekly forecast. 
-  But simple cards are easier to implement with current HTML/CSS/JS setup and maintain the app’s lightweight nature.
+- Using detailed charts (line graphs or bar charts) was considered, but simple cards are easier to implement, maintain, and fit the lightweight structure of the current app.
 
 Technologies Used:
-- HTML5 for structure
-- CSS3 (Flexbox/Grid) for layout and styling
-- JavaScript (ES6+) for dynamic card generation and API integration
-- Existing Weather API (OpenWeatherMap or similar) for 7-day forecast data
-- Optional: FontAwesome or weather icons library for visual enhancements
+- HTML5
+- CSS3 (Flexbox/Grid)
+- JavaScript (ES6+)
+- Existing weather API for 7-day forecast data
+- Optional: weather icons library for better visuals
 
 Additional Context:
-- No user login or database required; all data is fetched dynamically from the API.
-- Improves user experience by allowing quick week-long planning.
-- Maintainers can later enhance it further (e.g., add tooltips, animations, or user preferences) without changing core app architecture.
-- Fully compatible with Hacktoberfest PR guidelines as a feature suggestion.
-
+- No user login required; fully compatible with the current app structure.
+- Improves usability by allowing users to quickly view a full week’s forecast at a glance.
+- Beginner-friendly and Hacktoberfest-eligible.
